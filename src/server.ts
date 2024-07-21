@@ -1,3 +1,4 @@
+/*
 import express from "express";
 import morgan from "morgan";
 import { Signale } from "signale";
@@ -30,34 +31,29 @@ const port: string | undefined = process.env.PORT;
 app.listen(port, () => {
   logger.success("server listening on port:", port);
 });
-
+*/
 //Configuracion de HTTPS
-/*
+
+
 import express from "express";
 import morgan from "morgan";
 import { Signale } from "signale";
 import * as dotenv from "dotenv";
 import helmet from "helmet";
 import cors from "cors";
-import { userRouter } from "./user/infraestructure/RouterUser";
-import https from 'https';
+import { router } from "./notificationes/infraestructure/Ruter";
 import fs from "fs";
+import https from "https"
 
-// Cargar variables de entorno
 dotenv.config();
-
 const app = express();
-
-// Configurar middlewares
 app.use(helmet.hidePoweredBy());
 app.use(morgan("dev"));
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-// Configurar rutas
-app.use("/user", userRouter);
+app.use("/user", router);
 
-// Configurar opciones HTTPS
 const optionsHTTPS = {
   key: fs.readFileSync(String(process.env.RUTA_KEY)),
   cert: fs.readFileSync(String(process.env.RUTA_CERTIFICADO))
@@ -75,4 +71,3 @@ const port: string | undefined = process.env.PORT;
 https.createServer(optionsHTTPS, app).listen(port, () => {
   logger.success("server listening on port:", port);
 });
-*/
