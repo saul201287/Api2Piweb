@@ -6,6 +6,7 @@ import helmet from "helmet";
 import cors from "cors"
 import https from 'https';
 import fs from "fs"
+import { router } from "./notificationes/infraestructure/Ruter";
 
 dotenv.config();
 const app = express();
@@ -17,10 +18,7 @@ app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 
-const optionsHTTPS = {
-  key: fs.readFileSync(String(process.env.RUTA_KEY)),
-  cert: fs.readFileSync(String(process.env.RUTA_CERTIFICADO))
-  };
+app.use("/notification",router)
 const options = {
   secrets: ["([0-9]{4}-?)+"],
 };
