@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "dev": "tsnd --respawn --clear ./src/server.ts",
-    "start": "pm2 start ./build/server.js"
+    "dev": "tsnd --respawn --clear ./src/server.ts --attach",
+    "start": "pm2 start ./build/server.js",
+    "stop": "pm2 stop ./build/server.js"
   },
   "keywords": [],
   "author": "",
