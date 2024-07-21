@@ -52,7 +52,7 @@ app.use(morgan("dev"));
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-app.use("/user", router);
+app.use("/notification", router);
 
 const optionsHTTPS = {
   key: fs.readFileSync(String(process.env.RUTA_KEY)),
@@ -67,7 +67,6 @@ const logger = new Signale(options);
 
 const port: string | undefined = process.env.PORT;
 
-// Crear y lanzar el servidor HTTPS
 https.createServer(optionsHTTPS, app).listen(port, () => {
   logger.success("server listening on port:", port);
 });
