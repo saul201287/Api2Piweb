@@ -1,11 +1,11 @@
 import { NotificationRepository } from "../domain/NotificationRepository";
 import { query } from "../../database/mysql";
 import { Notification } from "../domain/Notification";
+import moment from 'moment-timezone';
 
 export class MysqRepository implements NotificationRepository {
   async saveData(notification: Notification): Promise<boolean | string> {
-    const fecha = new Date();
-
+    const fecha = moment.tz('America/Mexico_City').format();
     const sql =
       "INSERT INTO powerwatch.historialsensores (id, id_user,ampers,consumokwh,whs,voltaje,fecha) VALUES (?,?,?,?,?,?,?)";
     const params = [
@@ -53,7 +53,8 @@ export class MysqRepository implements NotificationRepository {
     tipo: string,
     mssg: string
   ): Promise<boolean | string> {
-    const fecha = new Date();
+    const fecha = moment.tz('America/Mexico_City').format();
+    
     const sql =
       "INSERT INTO notification (id, id_user,cuerpo,titulo,tipo,fecha) VALUES (?,?,?,?,?,?)";
     const params = [0, id_user, mssg, "Apagao de emergencia", tipo, fecha];
