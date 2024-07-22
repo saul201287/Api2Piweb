@@ -41,7 +41,7 @@ export class SaveData {
         if (vol >= 6) {
           await this.alert.run(
             notification.id_user,
-            "Advertencia",
+            "PICO",
             "Voltaje alto",
             `Alerta de voltaje alto, valor detectado: ${notification.voltaje} V`
           );
@@ -53,7 +53,7 @@ export class SaveData {
         if (amp >= 6) {
           await this.alert.run(
             notification.id_user,
-            "Advertencia",
+            "PICO",
             "Amperajes alto",
             `Alerta de amperaje alto, valor detectado: ${notification.ampers} A`
           );
@@ -65,7 +65,7 @@ export class SaveData {
         if (wht >= 6) {
           await this.alert.run(
             notification.id_user,
-            "Advertencia",
+            "PICO",
             "Watts alto",
             `Alerta de watts alto, valor detectado: ${notification.whs} W`
           );
@@ -78,7 +78,7 @@ export class SaveData {
         if (volB >= 6) {
           await this.alert.run(
             notification.id_user,
-            "Advertencia",
+            "PICO",
             "Voltaje muy bajo",
             `Alerta de voltaje muy bajo, valor detectado: ${notification.voltaje} V`
           );
@@ -90,7 +90,7 @@ export class SaveData {
         if (ampB >= 6) {
           await this.alert.run(
             notification.id_user,
-            "Advertencia",
+            "PICO",
             "Amperajes muy bajo",
             `Alerta de amperaje muy bajo, valor detectado: ${notification.ampers} A`
           );
@@ -102,7 +102,7 @@ export class SaveData {
         if (whtB >= 6) {
           await this.alert.run(
             notification.id_user,
-            "Advertencia",
+            "PICO",
             "Watts muy bajo",
             `Alerta de watts muy bajo, valor detectado: ${notification.whs} W`
           );

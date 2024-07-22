@@ -53,12 +53,15 @@ export class MysqRepository implements NotificationRepository {
     tipo: string,
     mssg: string
   ): Promise<boolean | string> {
-    
     const fecha = new Date();
     const sql =
       "INSERT INTO notification (id, id_user,cuerpo,titulo,tipo,fecha) VALUES (?,?,?,?,?,?)";
     const params = [0, id_user, mssg, "Apagao de emergencia", tipo, fecha];
+    const sql2 =
+      "INSERT INTO incidencias (id, id_user,tipo,valor,fecha) VALUES (?,?,?,?,?)";
+    const params2 = [0, id_user, tipo, mssg, fecha];
     try {
+      await query(sql2, params2);
       const [data]: any = await query(sql, params);
       return true;
     } catch (error) {

@@ -53,13 +53,14 @@ export class ConnetWS implements ISendDataWebSocket {
 
   async sendDatas(
     id_user: string,
-    vrms: number,
-    irms: number,
-    kwh: number
+    consumo_kwh: number,
+    whs: number,
+    ampers: number,
+    voltaje: number
   ): Promise<boolean | string> {
     try {
       this.connect(id_user);
-      this.socket.emit("data", { id_user, vrms, irms, kwh });
+      this.socket.emit("data", { id_user, consumo_kwh, whs, ampers, voltaje });
       return true;
     } catch (error) {
       console.error(error);

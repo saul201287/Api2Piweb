@@ -5,8 +5,6 @@ import { Signale } from "signale";
 import * as dotenv from "dotenv";
 import helmet from "helmet";
 import cors from "cors"
-import https from 'https';
-import fs from "fs"
 import { router } from "./notificationes/infraestructure/Ruter";
 
 dotenv.config();
@@ -33,7 +31,6 @@ app.listen(port, () => {
 });
 */
 //Configuracion de HTTPS
-
 
 import express from "express";
 import morgan from "morgan";
